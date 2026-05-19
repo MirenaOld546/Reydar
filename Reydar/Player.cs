@@ -6,20 +6,18 @@ namespace Reydar
 {
     class Player : Enity
     {
-        public int EXP, LVL, HIT, DMG, DEF;
+        public int EXP { get; protected set; }
+        public int LVL { get; protected set; }
 
         public static Player player1 = new Player("Mary", 3,15,15,0,0,0,0,new Stats(2,2,1,2),0,1,3,5,1);
 
-        public Player (string name, int ACb, int HP, int mHP, int EP, int mEP, int MP, int mMP, Stats stats, int EXP, int LVL, int HIT, int DMG, int DEF) : base(name, ACb, HP, mHP, EP, mEP, MP, mMP, stats)
+        public Player (string name, int ACb, int HP, int mHP, int EP, int mEP, int MP, int mMP, Stats stats, int EXP, int LVL, int HIT, int DMG, int DEF) : base(name, ACb, HP, mHP, EP, mEP, MP, mMP, stats, HIT, DMG, DEF)
         {
             this.EXP = EXP;
             this.LVL = LVL;
-            this.HIT = HIT;
-            this.DMG = DMG;
-            this.DEF = DEF;
         }
 
-        public void Attack(Enemy target)
+        /*public void Attack(Enemy target)
         {
             var x = new Random();
             int p = x.Next(20);
@@ -30,8 +28,8 @@ namespace Reydar
             }
             else
             {
-                Console.WriteLine(this.name + " промахнулся.");
+                Console.WriteLine(target.name + " промахнулся.");
             }
-        }
+        }*/
     }
 }
